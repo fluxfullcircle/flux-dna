@@ -185,6 +185,71 @@ class Flux_Dna {
 			));
 			
 		}
+		if( function_exists('acf_add_local_field_group') ):
+
+			acf_add_local_field_group(array(
+				'key' => 'group_5f29eb174d7b9',
+				'title' => 'Analytics',
+				'fields' => array(
+					array(
+						'key' => 'field_5f2a8856c0dc0',
+						'label' => 'Facebook Pixel',
+						'name' => 'facebook_pixel',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'placeholder' => 'Add Facebook Pixel ID',
+						'prepend' => '',
+						'append' => '',
+						'maxlength' => '',
+					),
+					array(
+						'key' => 'field_5f2a91cbd7b3e',
+						'label' => 'Google Analytics',
+						'name' => 'ga_tracking_id',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'default_value' => '',
+						'placeholder' => 'Tracking ID',
+						'prepend' => '',
+						'append' => '',
+						'maxlength' => '',
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'options_page',
+							'operator' => '==',
+							'value' => 'acf-options-analytics',
+						),
+					),
+				),
+				'menu_order' => 0,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
+			));
+			
+			endif;
 		/**
 		 * Add Custom Post Types for Accomodation, Experiences & Offers
 		 */
