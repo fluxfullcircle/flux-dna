@@ -1,0 +1,15 @@
+{
+    "name": "fluxfullcircle/flux-dna",
+    "description": "",
+    "keywords": ["wordpress", "plugin"],
+    "homepage": "https://github.com/fluxfullcircle/flux-dna",
+    "authors": [
+      {
+        "name": "Flux DNA"
+      }
+    ],
+    "type": "wordpress-plugin",
+    "require": {
+      "php": ">=7.1"
+    }
+  }
