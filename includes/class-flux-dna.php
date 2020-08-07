@@ -185,71 +185,6 @@ class Flux_Dna {
 			));
 			
 		}
-		if( function_exists('acf_add_local_field_group') ):
-
-			acf_add_local_field_group(array(
-				'key' => 'group_5f29eb174d7b9',
-				'title' => 'Analytics',
-				'fields' => array(
-					array(
-						'key' => 'field_5f2a8856c0dc0',
-						'label' => 'Facebook Pixel',
-						'name' => 'facebook_pixel',
-						'type' => 'text',
-						'instructions' => '',
-						'required' => 0,
-						'conditional_logic' => 0,
-						'wrapper' => array(
-							'width' => '',
-							'class' => '',
-							'id' => '',
-						),
-						'default_value' => '',
-						'placeholder' => 'Add Facebook Pixel ID',
-						'prepend' => '',
-						'append' => '',
-						'maxlength' => '',
-					),
-					array(
-						'key' => 'field_5f2a91cbd7b3e',
-						'label' => 'Google Analytics',
-						'name' => 'ga_tracking_id',
-						'type' => 'text',
-						'instructions' => '',
-						'required' => 0,
-						'conditional_logic' => 0,
-						'wrapper' => array(
-							'width' => '',
-							'class' => '',
-							'id' => '',
-						),
-						'default_value' => '',
-						'placeholder' => 'Tracking ID',
-						'prepend' => '',
-						'append' => '',
-						'maxlength' => '',
-					),
-				),
-				'location' => array(
-					array(
-						array(
-							'param' => 'options_page',
-							'operator' => '==',
-							'value' => 'acf-options-analytics',
-						),
-					),
-				),
-				'menu_order' => 0,
-				'position' => 'normal',
-				'style' => 'default',
-				'label_placement' => 'top',
-				'instruction_placement' => 'label',
-				'hide_on_screen' => '',
-				'active' => true,
-				'description' => '',
-			));
-			
-			endif;
 		/**
 		 * Add Custom Post Types for Accomodation, Experiences & Offers
 		 */
@@ -336,6 +271,26 @@ class Flux_Dna {
 			);
 		}
 		/**
+		 * Custom Taxonomy for Offers/Campaigns
+		 */
+		add_action( 'init', 'create_my_taxonomies', 0 );
+		function create_my_taxonomies() {
+			register_taxonomy(
+				'category_offers',
+				'post_offers',
+				array(
+					'labels' => array(
+						'name' => 'Category',
+						'add_new_item' => 'Add New Category',
+						'new_item_name' => "New Category"
+					),
+					'show_ui' => true,
+					'show_tagcloud' => false,
+					'hierarchical' => true
+				)
+			);
+		}
+		/**
 		 * Custom post query for Elementor post block
 		 */
 		add_action( 'elementor_pro/query/get_rooms', function ( $query ) { 
@@ -344,18 +299,11 @@ class Flux_Dna {
 				} 
 			} 
 		);
-		/**
-		 * Freshsales Snippet
-		 */
-		add_action( 'wp_footer', function(){
-			?>
-			<script> function createFcn(nm){(window.freshsales)[nm]=function(){(window.freshsales).push([nm].concat(Array.prototype.slice.call(arguments,0)))}; } (function(url,appToken,formCapture){window.freshsales=window.freshsales||[];if(window.freshsales.length==0){list='init identify trackPageView trackEvent set'.split(' ');for(var i=0;i<list.length;i++){var nm=list[i];createFcn(nm);}var t=document.createElement('script');t.async=1;t.src='https://d952cmcgwqsjf.cloudfront.net/assets/analytics.js';var ft=document.getElementsByTagName('script')[0];ft.parentNode.insertBefore(t,ft);freshsales.init('https://fluxfullcircleafrica.freshsales.io','37aca4d6dbbcf495aa472e8a71da8074a5984e6268dfe1fb4daf3d1a9e4b6f25',true);}})();</script>
-			<?php
-		});
 
 		add_action('wp_head',function(){
 			$fbpixel = get_field('facebook_pixel', 'option');
 			$gtag = get_field('ga_tracking_id', 'option');
+			$hotjar = get_field('hotjar_tracking_id', 'option');
 			
 			?>
 				<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -381,6 +329,17 @@ class Flux_Dna {
 				src='https://www.facebook.com/tr?id=<?php echo $fbpixel ?>/&ev=PageView&noscript=1'
 				/></noscript>
 				<!-- End Facebook Pixel Code -->
+				<!-- Hotjar Tracking Code for https://matetsivictoriafalls.com -->
+				<script>
+					(function(h,o,t,j,a,r){
+						h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+						h._hjSettings={hjid:<?php echo $hotjar ?>,hjsv:6};
+						a=o.getElementsByTagName('head')[0];
+						r=o.createElement('script');r.async=1;
+						r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+						a.appendChild(r);
+					})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+				</script>
 			<?php
 		});
 
