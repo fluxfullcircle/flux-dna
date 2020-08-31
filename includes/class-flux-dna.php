@@ -289,6 +289,34 @@ class Flux_Dna {
 					'hierarchical' => true
 				)
 			);
+			register_taxonomy(
+				'category_experience',
+				'post_experience',
+				array(
+					'labels' => array(
+						'name' => 'Category',
+						'add_new_item' => 'Add New Category',
+						'new_item_name' => "New Category"
+					),
+					'show_ui' => true,
+					'show_tagcloud' => false,
+					'hierarchical' => true
+				)
+			);
+			register_taxonomy(
+				'category_accomodation',
+				'post_accomodation',
+				array(
+					'labels' => array(
+						'name' => 'Category',
+						'add_new_item' => 'Add New Category',
+						'new_item_name' => "New Category"
+					),
+					'show_ui' => true,
+					'show_tagcloud' => false,
+					'hierarchical' => true
+				)
+			);
 		}
 		/**
 		 * Custom post query for Elementor post block
