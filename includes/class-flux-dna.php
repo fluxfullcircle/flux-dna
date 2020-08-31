@@ -239,7 +239,7 @@ class Flux_Dna {
 				'has_archive' 		=> true,
 				'can_export' 		=> true,
 				'capability_type' 	=> 'page',
-				'rewrite'           => array( "slug" => "experience" ),
+				'rewrite'           => array( "slug" => "experiences" ),
 				'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
 				)
 			);
