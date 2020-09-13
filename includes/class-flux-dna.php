@@ -331,43 +331,73 @@ class Flux_Dna {
 		add_action('wp_head',function(){
 			$fbpixel = get_field('facebook_pixel', 'option');
 			$gtag = get_field('ga_tracking_id', 'option');
+			$gtm = get_field('gtm_tracking_id', 'option');
 			$hotjar = get_field('hotjar_tracking_id', 'option');
 			
 			?>
-				<!-- Global site tag (gtag.js) - Google Analytics -->
-				<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $gtag ?>"></script>
-				<script>
-				window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date());
+				<?php if( get_field('ga_tracking_id') ): ?>
+					<!-- Global site tag (gtag.js) - Google Analytics -->
+					<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $gtag ?>"></script>
+					<script>
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
 
-				gtag('config', '<?php echo $gtag ?>');
-				</script>
-				<!-- Facebook Pixel Code -->
-				<script>
-				!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-				n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-				n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-				t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-				document,'script','//connect.facebook.net/en_US/fbevents.js');
+					gtag('config', '<?php echo $gtag ?>');
+					</script>
+				<?php endif; ?>
 
-				fbq('init', '<?php echo $fbpixel ?>');
-				fbq('track', 'PageView');</script>
-				<noscript><img height='1' width='1' style='display:none'
-				src='https://www.facebook.com/tr?id=<?php echo $fbpixel ?>/&ev=PageView&noscript=1'
-				/></noscript>
-				<!-- End Facebook Pixel Code -->
-				<!-- Hotjar Tracking Code for https://matetsivictoriafalls.com -->
-				<script>
-					(function(h,o,t,j,a,r){
-						h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-						h._hjSettings={hjid:<?php echo $hotjar ?>,hjsv:6};
-						a=o.getElementsByTagName('head')[0];
-						r=o.createElement('script');r.async=1;
-						r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-						a.appendChild(r);
-					})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-				</script>
+				<?php if( get_field('facebook_pixel') ): ?>
+					<!-- Facebook Pixel Code -->
+					<script>
+					!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+					n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+					n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+					t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+					document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+					fbq('init', '<?php echo $fbpixel ?>');
+					fbq('track', 'PageView');</script>
+					<noscript><img height='1' width='1' style='display:none'
+					src='https://www.facebook.com/tr?id=<?php echo $fbpixel ?>/&ev=PageView&noscript=1'
+					/></noscript>
+					<!-- End Facebook Pixel Code -->
+				<?php endif; ?>
+				<?php if( get_field('hotjar_tracking_id') ): ?>
+					<!-- Hotjar Tracking Code-->
+					<script>
+						(function(h,o,t,j,a,r){
+							h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+							h._hjSettings={hjid:<?php echo $hotjar ?>,hjsv:6};
+							a=o.getElementsByTagName('head')[0];
+							r=o.createElement('script');r.async=1;
+							r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+							a.appendChild(r);
+						})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+					</script>
+				<?php endif; ?>
+				<?php if( get_field('gtm_tracking_id') ): ?>
+					<!-- Google Tag Manager -->
+					<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+					j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+					'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+					})(window,document,'script','dataLayer','<?php echo $gtm ?>');</script>
+					<!-- End Google Tag Manager -->
+				<?php endif; ?>
+			<?php
+		});
+
+		add_action('wp_body_open',function(){
+			$gtm = get_field('gtm_tracking_id', 'option');
+
+			?>
+			<?php if( get_field('gtm_tracking_id') ): ?>
+			<!-- Google Tag Manager (noscript) -->
+			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo $gtm ?>"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+			<!-- End Google Tag Manager (noscript) -->
+			<?php endif; ?>
 			<?php
 		});
 
