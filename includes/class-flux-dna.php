@@ -335,7 +335,7 @@ class Flux_Dna {
 			$hotjar = get_field('hotjar_tracking_id', 'option');
 			
 			?>
-				<?php if( get_field('ga_tracking_id') ): ?>
+				<?php if( get_field('ga_tracking_id', 'option') ): ?>
 					<!-- Global site tag (gtag.js) - Google Analytics -->
 					<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $gtag ?>"></script>
 					<script>
@@ -347,7 +347,7 @@ class Flux_Dna {
 					</script>
 				<?php endif; ?>
 
-				<?php if( get_field('facebook_pixel') ): ?>
+				<?php if( get_field('facebook_pixel', 'option') ): ?>
 					<!-- Facebook Pixel Code -->
 					<script>
 					!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -363,7 +363,7 @@ class Flux_Dna {
 					/></noscript>
 					<!-- End Facebook Pixel Code -->
 				<?php endif; ?>
-				<?php if( get_field('hotjar_tracking_id') ): ?>
+				<?php if( get_field('hotjar_tracking_id', 'option') ): ?>
 					<!-- Hotjar Tracking Code-->
 					<script>
 						(function(h,o,t,j,a,r){
@@ -376,7 +376,7 @@ class Flux_Dna {
 						})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 					</script>
 				<?php endif; ?>
-				<?php if( get_field('gtm_tracking_id') ): ?>
+				<?php if( get_field('gtm_tracking_id', 'option') ): ?>
 					<!-- Google Tag Manager -->
 					<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -392,7 +392,7 @@ class Flux_Dna {
 			$gtm = get_field('gtm_tracking_id', 'option');
 
 			?>
-			<?php if( get_field('gtm_tracking_id') ): ?>
+			<?php if( get_field('gtm_tracking_id', 'option') ): ?>
 			<!-- Google Tag Manager (noscript) -->
 			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo $gtm ?>"
 			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
