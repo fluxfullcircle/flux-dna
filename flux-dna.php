@@ -16,7 +16,7 @@
  * Plugin Name:       Flux DNA
  * Plugin URI:        fluxfullcircle.com
  * Description:       Flux DNA is what sets us apart from the rest.
- * Version:           1.0.6
+ * Version:           1.0.0
  * Author:            Flux
  * Author URI:        fluxfullcircle.com
  * License:           GPL-2.0+
