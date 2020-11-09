@@ -51,7 +51,7 @@ class Flux_Dna {
 	/**
 	 * The current version of the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    1.0.6
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
