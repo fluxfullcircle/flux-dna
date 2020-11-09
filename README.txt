@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== flux-dna ===
 Contributors: (this should be a list of wordpress.org userid's)
 Donate link: fluxfullcircle.com
 Tags: comments, spam
