@@ -16,7 +16,7 @@
  * Plugin Name:       Flux DNA
  * Plugin URI:        fluxfullcircle.com
  * Description:       Flux DNA is what sets us apart from the rest.
- * Version:           1.0.0
+ * Version:           1.0.7
  * Author:            Flux
  * Author URI:        fluxfullcircle.com
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'FLUX_DNA_VERSION', '1.0.6' );
+define( 'FLUX_DNA_VERSION', '1.0.7' );
 
 /**
  * The code that runs during plugin activation.
