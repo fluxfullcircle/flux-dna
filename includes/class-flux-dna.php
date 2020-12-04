@@ -51,7 +51,7 @@ class Flux_Dna {
 	/**
 	 * The current version of the plugin.
 	 *
-	 * @since    1.0.6
+	 * @since    1.0.7
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
@@ -214,7 +214,8 @@ class Flux_Dna {
 				'can_export' 		=> true,
 				'capability_type' 	=> 'page',
 				'rewrite'           => array( "slug" => "stay" ),
-				'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
+				'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes'),
+            	'hierarchical'      => true
 				)
 			);
 			register_post_type( 'post_experience',
@@ -240,7 +241,8 @@ class Flux_Dna {
 				'can_export' 		=> true,
 				'capability_type' 	=> 'page',
 				'rewrite'           => array( "slug" => "experiences" ),
-				'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
+				'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes'),
+            	'hierarchical'      => true
 				)
 			);
 			register_post_type( 'post_offers',
@@ -266,7 +268,8 @@ class Flux_Dna {
 				'can_export' 		=> true,
 				'capability_type' 	=> 'page',
 				'rewrite'           => array( "slug" => "offers" ),
-				'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' )
+				'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes'),
+            	'hierarchical'      => true
 				)
 			);
 		}
